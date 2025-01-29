@@ -1,0 +1,26 @@
+{
+  "name": "mact_6340_project_jazz",
+  "version": "1.0.0",
+  "description": "A personal NFT mint for an artist",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacumaloya/MACT6340PROJECT_JAZZ.git"
+  },
+  "author": "Jasmine M. Aguilar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lacumaloya/MACT6340PROJECT_JAZZ/issues"
+  },
+  "homepage": "https://github.com/lacumaloya/MACT6340PROJECT_JAZZ#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
