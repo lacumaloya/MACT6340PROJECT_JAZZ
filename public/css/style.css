@@ -1,9 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;  
+}
+
 body {
     background-color: indigo;
 }
 
-button {
+#testButton {
     background-color: turquoise;
     color: white;
 
+}
+
+div {
+  border: 1px solid white;  
 }
