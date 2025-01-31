@@ -21,30 +21,5 @@ div {
   border: 1px solid white;  
 }
 
-.tajawal-medium {
-    font-family: "Tajawal", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.container h1 {
-    color: white;
-    font-weight: 700;
-}
-
-.container p {
-    color: #ddd;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.btn-primary {
-    background-color: turquoise;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: lightseagreen;
-}
 
   
