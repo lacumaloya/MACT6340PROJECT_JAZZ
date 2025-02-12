@@ -7,6 +7,13 @@
     
     function submitMail() {
         console.log("Thanks!");
+        let name = document.querySelector("#name").value;
+        let email = document.querySelector("#mail").value;
+        let message = document.querySelector("#msg").value;
+        console.log("Name: " + name);
+        console.log("Email: " + email);
+        console.log("Message: " + message);
+
     }
-    })();
+})();
     
