@@ -1,29 +1,41 @@
-(function () {
+(function() {
     "use strict";
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector("#contact-form");
+    // Select the contact form
+    let form = document.querySelector("#contact-form");
 
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
+    // Attach event listener to the submit button
+    document
+        .querySelector("#contact-form-button")
+        .addEventListener("click", (event) => {
+            event.preventDefault(); // Fix: Add parentheses
+            event.stopPropagation(); // Fix: Add parentheses
 
-            // Loop through all form controls
-            form.querySelectorAll("input, textarea").forEach((field) => {
-                if (!field.checkValidity()) {
-                    field.classList.add("is-invalid"); // Bootstrap's red border
-                    isValid = false;
-                } else {
-                    field.classList.remove("is-invalid"); // Remove error styling if valid
-                }
-            });
-
-            if (!isValid) {
-                event.preventDefault(); // Prevent submission
-                event.stopPropagation();
+            // Check form validity
+            if (!form.checkValidity()) {
+                form.classList.add("was-validated"); // Add Bootstrap validation styling
+                return; // Stop execution if form is invalid
             }
 
-            form.classList.add("was-validated");
-        }, false);
-    });
+            // If valid, send the email
+            sendTheEmail();
+        });
 
+    function sendTheEmail() {
+        console.log("Thanks!");
+
+        // Get values from the form
+        let firstName = document.querySelector("#firstName").value;
+        let lastName = document.querySelector("#lastName").value;
+        let email = document.querySelector("#email").value;
+        let message = document.querySelector("#message").value;
+
+        // Log values for debugging
+        console.log("First Name: " + firstName);
+        console.log("Last Name: " + lastName);
+        console.log("Email: " + email);
+        console.log("Message: " + message);
+
+        // TODO: Send the form data to a server or API
+    }
 })();
