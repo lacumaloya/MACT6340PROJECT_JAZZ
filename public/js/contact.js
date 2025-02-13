@@ -1,21 +1,29 @@
-(function() {
+(function () {
     "use strict";
-    
-    document
-        .querySelector("#contact-form-button")
-        .addEventListener("click", (event) => {
-            event.preventDefault;
-            event.stopPropagation;
-            console.log("Thanks!");
-            let name = document.querySelector("#name").value;
-            let email = document.querySelector("#mail").value;
-            let message = document.querySelector("#msg").value;
-            console.log("Name: " + name);
-            console.log("Email: " + email);
-            console.log("Message: " + message);
-    
-        });
-    
-    
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("#contact-form");
+
+        form.addEventListener("submit", function (event) {
+            let isValid = true;
+
+            // Loop through all form controls
+            form.querySelectorAll("input, textarea").forEach((field) => {
+                if (!field.checkValidity()) {
+                    field.classList.add("is-invalid"); // Bootstrap's red border
+                    isValid = false;
+                } else {
+                    field.classList.remove("is-invalid"); // Remove error styling if valid
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault(); // Prevent submission
+                event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+        }, false);
+    });
+
 })();
-    
