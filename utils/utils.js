@@ -2,13 +2,14 @@ import nodemailer from "nodemailer";
 
 export async function sendMessage(sub, txt) {
     let transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: process.env.MAIL_PORT,
-        secure: process.env.MAIL_SECURE === 'true', // Convert string to boolean
+        host: process.env.GMAIL_HOST,
+        port: process.env.MAIL_PORT, // Should be 587 for TLS
+        secure: false, // Should be false for TLS (not SSL)
         auth: {
-            user: process.env.MAIL_USERNAME,
-            pass: process.env.MAIL_PASSWORD,
+            user: process.env.GMAIL_USERNAME,
+            pass: process.env.GMAIL_PASSWORD,
         },
+        requireTLS: process.env.MAIL_TLS === "true", // Ensure TLS is required
     });
 
     let message = {
@@ -22,7 +23,7 @@ export async function sendMessage(sub, txt) {
         await transporter.sendMail(message);
         console.log("Message sent");
     } catch (err) {
-        console.error("Message not sent - " + err);
-        throw err;  // Re-throwing error to handle it in higher-level code if necessary
+        console.log("Message not sent - " + err);
+        throw err;  // Re-throwing error
     }
 }
