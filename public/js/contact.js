@@ -1,34 +1,47 @@
 function validateForm() {
-    let firstName = document.querySelector("#firstName").value.trim();
-    let lastName = document.querySelector("#lastName").value.trim();
-    let email = document.querySelector("#email").value.trim();
-    let message = document.querySelector("#message").value.trim();
-    let responseDiv = document.querySelector("#contact-button-response");
+    let form = document.querySelector("#contact-form");
+    let firstName = document.querySelector("#firstName");
+    let lastName = document.querySelector("#lastName");
+    let email = document.querySelector("#email");
+    let message = document.querySelector("#message");
+    let isValid = true;
 
     // Email validation regex
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!firstName || !lastName) {
-        responseDiv.innerHTML = "Please enter your first and last name.";
-        responseDiv.classList.add("text-danger");
-        return false;
+    if (!firstName.value.trim()) {
+        firstName.classList.add("is-invalid");
+        isValid = false;
+    } else {
+        firstName.classList.remove("is-invalid");
+        firstName.classList.add("is-valid");
     }
 
-    if (!email || !emailPattern.test(email)) {
-        responseDiv.innerHTML = "Please enter a valid email address.";
-        responseDiv.classList.add("text-danger");
-        return false;
+    if (!lastName.value.trim()) {
+        lastName.classList.add("is-invalid");
+        isValid = false;
+    } else {
+        lastName.classList.remove("is-invalid");
+        lastName.classList.add("is-valid");
     }
 
-    if (!message) {
-        responseDiv.innerHTML = "Please enter a message.";
-        responseDiv.classList.add("text-danger");
-        return false;
+    if (!email.value.trim() || !emailPattern.test(email.value.trim())) {
+        email.classList.add("is-invalid");
+        isValid = false;
+    } else {
+        email.classList.remove("is-invalid");
+        email.classList.add("is-valid");
     }
 
-    // Clear error message if validation passes
-    responseDiv.innerHTML = "";
-    return true;
+    if (!message.value.trim()) {
+        message.classList.add("is-invalid");
+        isValid = false;
+    } else {
+        message.classList.remove("is-invalid");
+        message.classList.add("is-valid");
+    }
+
+    return isValid;
 }
 
 function sendTheEmail() {
@@ -43,11 +56,10 @@ function sendTheEmail() {
     let email = document.querySelector("#email").value;
     let message = document.querySelector("#message").value;
     let subscribe = document.querySelector("#subscribeCheck").checked;
-    let form = document.querySelector("#contact-form");
 
     let obj = {
         sub: "Contact form submitted!",
-        txt: `${firstName} ${lastName} ${subscribe ? "Subbed!" : "Did not subscribe."} sent you a message that reads: "${message}". 
+        txt: `${firstName} ${lastName} ${subscribe ? "Subbed!" : "Did not subscribe."} sent you a message that reads: \"${message}\". 
         Their email address is: ${email}.`
     };
 
@@ -65,9 +77,8 @@ function sendTheEmail() {
                 responseDiv.innerHTML = "Submitted!";
                 responseDiv.classList.add("text-success");
                 responseDiv.classList.remove("text-danger");
-
-                // Clear the form after successful submission
-                form.reset();
+                document.querySelector("#contact-form").reset(); // Clear fields on success
+                document.querySelectorAll(".is-valid").forEach(el => el.classList.remove("is-valid")); // Reset validation styling
             } else {
                 responseDiv.innerHTML = "Failed to send.";
                 responseDiv.classList.add("text-danger");
