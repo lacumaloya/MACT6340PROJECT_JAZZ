@@ -5,10 +5,26 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
 
+app.get("/project", (req, res) => {
+  res.render("project.ejs");  // Make sure project.ejs exists
+});
+
+
+app.get("/projects", (req, res) => {
+  res.render("projects.ejs");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");  // <=== Add this line
+});
 
 app.post("/mail", async (req, res) => {
   await utils
@@ -17,9 +33,8 @@ app.post("/mail", async (req, res) => {
       res.send({ result: "success" });
     })
     .catch(() => {
-       res.send({ result: "failure"});
+      res.send({ result: "failure"});
     });
-
 });
 
 app.listen(port, () => {
