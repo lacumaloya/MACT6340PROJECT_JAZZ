@@ -14,9 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/project", (req, res) => {
-  res.render("project.ejs");  // Make sure project.ejs exists
+  res.render("project.ejs", { data: "Welcome to my personal NFT project!" });
 });
-
 
 app.get("/projects", (req, res) => {
   res.render("projects.ejs");
