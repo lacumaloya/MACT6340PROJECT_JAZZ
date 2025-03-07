@@ -22,18 +22,7 @@
 
 <!-- HEADER CONTENT -->
 </head>
-<body>
-
-  <div class="container">
-    <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/#featured" class="nav-link active mx-5" aria-current="page">Featured</a></li>
-        <li class="nav-item"><a href="/projects" class="nav-link active mx-5">Projects</a></li>
-        <li class="nav-item"><a href="/#artist" class="nav-link active mx-5">Artist</a></li>
-        <li class="nav-item"><a href="/contact" class="nav-link active mx-5">Contact</a></li>
-        <li class="nav-item"><a href="/#Connect Wallet" class="nav-link active mx-5">Connect Wallet</a></li>
-
-      </ul>
+<%- include('header'); %>
     </header>
   </div>
 
@@ -109,23 +98,9 @@
 
 
   <!-- Footer Section -->
-<footer class="bg-dark text-white py-4">
-  <div class="container text-center">
-    <p>&copy; 2025 Jasmine M. Aguilar | All Rights Reserved</p>
+  <footer>
+    <%- include('footer'); %>    
 
-    <!-- Social Media Links -->
-    <div class="d-flex justify-content-center">
-      <a href="https://www.instagram.com/yourusername" class="btn btn-outline-light btn-lg mx-2" target="_blank">
-        <i class="fa-brands fa-instagram"></i> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/yourusername" class="btn btn-outline-light btn-lg mx-2" target="_blank">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/yourusername" class="btn btn-outline-light btn-lg mx-2" target="_blank">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
-    </div>
-  </div>
 </footer>
 
 <!-- Font Awesome (Latest CDN) -->
