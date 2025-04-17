@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
 dotenv.config();
 
+let data = ["Project 1", "Project 2", "Project 3"];
+let projects = [];
+
 const app = express();
 const port = 3000;
 app.set("view engine", "ejs");
@@ -18,24 +21,45 @@ app.get("/project", (req, res) => {
 });
 
 app.get("/projects", (req, res) => {
-  res.render("projects.ejs");
+  res.render("projects.ejs", { projectArray: projects });
+});
+
+app.get("/project/:id", (req, res, next) => {
+  try {
+    let id = req.params.id;
+    if (id > data.length) {
+      throw new Error("No project with that ID");
+    }
+    res.render("projects.ejs", { projectArray: data, which: id });
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact.ejs");  // <=== Add this line
+  res.render("contact.ejs");
 });
 
 app.post("/mail", async (req, res) => {
-  await utils
-    .sendMessage(req.body.sub, req.body.txt)
-    .then(() => {
-      res.send({ result: "success" });
-    })
-    .catch(() => {
-      res.send({ result: "failure"});
-    });
+  try {
+    await utils.sendMessage(req.body.sub, req.body.txt);
+    res.send({ result: "success" });
+  } catch (error) {
+    console.error('Error sending message:', error);
+    res.send({ result: "failure" });
+  }
+});
+
+app.use(async (err, req, res, next) => {
+  console.log(err);
+  let msg;
+  msg = err.message;
+  if (msg != "No project with that ID") {
+    msg = "Internal error :( Sorry! Let us fix that for you :)";
+  }
+  res.render("error.ejs", { msg: msg });
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`);
 });
