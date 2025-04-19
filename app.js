@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
 dotenv.config();
-
+import * as db from './utils/database.js';
 let data = ["Project 1", "Project 2", "Project 3"];
 let projects = [];
 
@@ -15,6 +15,17 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
+
+// app.get("/", async (req, res) => {
+//   await db
+//     .connect()
+//     .then(async () => {
+//       projects = await db.getAllProjects();
+//       console.log(projects);
+//       res.render("index.ejs");
+//     })
+//     .catch(next);
+// });
 
 app.get("/project", (req, res) => {
   res.render("project.ejs", { data: "Welcome to my personal NFT project!" });
