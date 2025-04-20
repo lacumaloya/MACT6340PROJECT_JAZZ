@@ -19,6 +19,13 @@ const projects = [
     image: "/images/Rodrigue_Jasmine.png",
     editions: "1 of 1",
     price: "0.02 ETH"
+  },
+  {
+    name: "Geometric Bouquet",
+    description: "A 3D bouquet of geometric shapes",
+    image: "/images/geo_bouquet.png",
+    editions: "1 of 1",
+    price: "0.03 ETH"
   }
 ];
 
