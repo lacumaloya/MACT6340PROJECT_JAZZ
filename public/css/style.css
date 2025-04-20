@@ -2,33 +2,48 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
-    font-family: "Kanit", sans-serif;
-  }
-  
-  
-html {
-    box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
 }
+
+html {
+  box-sizing: border-box;
+}
+
 *, 
 *:before, 
 *:after {
-    box-sizing: inherit;  
+  box-sizing: inherit;  
 }
 
 body {
-    background-color: indigo;
+  background-color: indigo;
+}
+
+/* Contact Page Specific Styles */
+html body.contact-page {
+  background-color: #f0f0f0 !important;
+  min-height: 100vh;
+}
+
+html body.contact-page .container .card {
+  background-color: rgba(255, 245, 200, 0.4) !important;
+  border: 2px solid #d4af37 !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
+}
+
+html body.contact-page .container {
+  background-color: transparent !important;
+}
+
+html body.contact-page .navbar {
+  background-color: rgba(255, 245, 200, 0.4) !important;
+  border-bottom: 1px solid #d4af37 !important;
 }
 
 #testButton {
-    background-color: turquoise;
-    color: white;
-
-}
-
-div {
-  border: 1px solid white;  
+  background-color: turquoise;
+  color: white;
 }
 
 :root {
@@ -38,6 +53,7 @@ div {
   --text-color: #2d3436;
   --light-bg: #f8f9fa;
   --dark-bg: #2d3436;
+  --border-color: rgba(255, 235, 150, 0.6);
 }
 
 /* Custom Button Styles */
@@ -49,6 +65,21 @@ div {
 .btn-primary:hover {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
+}
+
+.btn-warning {
+  background-color: rgba(255, 235, 150, 0.8);
+  border-color: rgba(255, 215, 100, 0.9);
+  color: #2d3436;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: rgba(255, 215, 100, 0.9);
+  border-color: rgba(255, 195, 50, 1);
+  color: #2d3436;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-outline-primary {
@@ -64,6 +95,22 @@ div {
 /* Hero Section */
 .hero-section {
   position: relative;
+}
+
+.hero-section .btn-warning {
+  background-color: #d4af37;
+  border-color: #c4a137;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.hero-section .btn-warning:hover {
+  background-color: #c4a137;
+  border-color: #b49127;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
 }
 
 .hero-bg {
@@ -88,17 +135,22 @@ div {
 
 /* Card Styles */
 .card {
-  border: none;
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  background-color: rgba(255, 245, 200, 0.4);
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 235, 150, 0.8);
 }
 
 /* Navbar Styles */
 .navbar {
   padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: rgba(255, 245, 200, 0.4) !important;
 }
 
 .navbar-brand img {
@@ -122,6 +174,7 @@ div {
 /* Section Styles */
 section {
   padding: 4rem 0;
+  border: none;
 }
 
 /* Project Info Styles */
@@ -129,6 +182,25 @@ section {
   background-color: var(--light-bg);
   padding: 1.5rem;
   border-radius: 0.5rem;
+  border: none;
+}
+
+/* Section Background Styles */
+.section-header {
+  background-color: rgba(255, 245, 200, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Container Styles */
+.container, .container-fluid {
+  border: none;
+}
+
+.row, .col, [class^="col-"] {
+  border: none;
 }
 
 /* Responsive Adjustments */
@@ -156,33 +228,6 @@ section {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Section Background Styles */
-.section-header {
-  background-color: rgba(255, 245, 200, 0.4); /* More gold-like with transparency */
-  border: 1px solid rgba(255, 235, 150, 0.6); /* More gold-like border */
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Navbar Background */
-.navbar {
-  background-color: rgba(255, 245, 200, 0.4) !important;
-  border-bottom: 1px solid rgba(255, 235, 150, 0.6);
-}
-
-/* Card Hover Effect Enhancement */
-.card {
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 235, 150, 0.4);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border-color: rgba(255, 235, 150, 0.8);
 }
 
 /* Sticky Footer Styles */
@@ -248,5 +293,19 @@ footer {
 .copyright-section {
   padding-bottom: 1rem;
   background-color: #212529;
+}
+
+.text-warning {
+  color: #d4af37 !important; /* A rich gold color */
+}
+
+/* Contact Page Specific Styles */
+.contact-page {
+  background-color: #f0f0f0 !important;
+}
+
+.contact-page .card {
+  background-color: rgba(255, 245, 200, 0.4) !important;
+  border: 2px solid #d4af37 !important;
 }
   

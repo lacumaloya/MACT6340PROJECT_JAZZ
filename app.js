@@ -21,7 +21,7 @@ const projects = [
     price: "0.02 ETH"
   },
   {
-    name: "Geometric Bouquet",
+    name: "Geo Bouquet",
     description: "A 3D bouquet of geometric shapes",
     image: "/images/geo_bouquet.png",
     editions: "1 of 1",

@@ -75,14 +75,14 @@ function sendTheEmail() {
             let responseDiv = document.querySelector("#contact-button-response");
             if (response.result === "success") {
                 responseDiv.innerHTML = "Submitted!";
-                responseDiv.classList.add("text-success");
-                responseDiv.classList.remove("text-danger");
+                responseDiv.style.color = "#0A2F1A";
+                responseDiv.style.fontWeight = "bold";
+                responseDiv.style.fontSize = "1.1em";
                 document.querySelector("#contact-form").reset(); // Clear fields on success
                 document.querySelectorAll(".is-valid").forEach(el => el.classList.remove("is-valid")); // Reset validation styling
             } else {
                 responseDiv.innerHTML = "Failed to send.";
                 responseDiv.classList.add("text-danger");
-                responseDiv.classList.remove("text-success");
             }
         })
         .then(() => {

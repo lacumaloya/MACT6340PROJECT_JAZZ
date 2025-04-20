@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -10,20 +9,20 @@
   <meta name="author" content="Jasmine M. Aguilar">
   <meta name="description" content="A page to contact artist.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/style.css"> 
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-    
+     
 <body>
-
-</head>
-<%- include('header'); %>
-    </header>
-  </div>
+  <%- include('header'); %>
   
-  <div class="container mt-5">
-    <div class="card p-4">
-      <h2 class="text-center">CONTACT JAZZ!</h2>
-        <h2 class="text-center">Sub!</h2>
+  <div class="container mt-5 mb-5">
+    <div class="card p-4" style="border: 3px solid #d4af37;">
+      <h2 class="text-center">Stay in Touch!</h2>
+      <h3 class="text-center mb-4">(◠‿◠✿)</h3>
 
       <!-- CONTACT FORM -->
       <form id="contact-form">
@@ -43,7 +42,7 @@
         <div class="mb-3">
           <label for="email" class="form-label">Email Address</label>
           <input type="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="your@email.com" required>
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div id="emailHelp" class="form-text" style="color: #1B4D3E;">We'll never share your email with anyone else.</div>
         </div>
 
         <!-- Message Field -->
@@ -53,14 +52,14 @@
         </div>
 
         <!-- Subscribe Checkbox Field -->
-        <div class="mb-3">
-          <label for="subscribeCheck" class="form-label">Sub</label>
-          <input type="checkbox" id="subscribeCheck" class="form-check-input">
+        <div class="mb-3 form-check">
+          <input type="checkbox" id="subscribeCheck" class="form-check-input" style="border-color: #1B4D3E;">
+          <label for="subscribeCheck" class="form-check-label">Subscribe for updates</label>
         </div>
 
         <!-- Submit Button -->
-        <div id="contact-button-response" class="mt-3 text-center text-success"></div>
-          <button id="contact-form-button" type="submit" class="btn btn-primary w-100">Submit</button>
+        <div id="contact-button-response" class="mt-3 text-center" style="color: #0A2F1A; font-weight: bold; font-size: 1.1em;"></div>
+          <button id="contact-form-button" type="submit" class="btn btn-warning w-100 py-3" style="background-color: #d4af37; color: white; font-weight: bold; border: 2px solid #1B4D3E;">Submit</button>
       </form>
       <!-- END CONTACT FORM -->
       
@@ -70,9 +69,7 @@
   <%- include('footer'); %>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script type="module" src="./js/contact.js"></script>
-  <script type="module" src="./js/index.js"></script>
-
+  <script type="module" src="/js/contact.js"></script>
+  <script type="module" src="/js/index.js"></script>
 </body>
-
 </html>

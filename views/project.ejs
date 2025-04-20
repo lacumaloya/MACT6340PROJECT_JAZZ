@@ -49,8 +49,8 @@
                   <img src="<%= project.image %>" 
                        alt="<%= project.name %>" 
                        class="img-fluid rounded">
-                  <div class="position-absolute top-0 end-0 m-3">
-                    <span class="badge bg-primary"><%= project.editions %></span>
+                  <div class="position-absolute bottom-0 end-0 m-3">
+                    <span class="badge bg-warning text-dark bg-opacity-75"><%= project.editions %></span>
                   </div>
                 </div>
                 <div class="project-info">
@@ -59,7 +59,7 @@
                     <li class="mb-2"><strong>Name:</strong> <%= project.name %></li>
                     <li class="mb-2"><strong>Description:</strong> <%= project.description %></li>
                     <li class="mb-2"><strong>Editions:</strong> <%= project.editions %></li>
-                    <li class="mb-2"><strong>Price:</strong> <%= project.price %></li>
+                    <li class="mb-2"><strong>Price:</strong> <span class="text-warning fw-bold"><%= project.price %></span></li>
                   </ul>
                 </div>
                 <div class="d-grid gap-3 mt-4">
