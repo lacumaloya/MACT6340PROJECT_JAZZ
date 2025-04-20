@@ -3,8 +3,24 @@ import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
 dotenv.config();
 import * as db from './utils/database.js';
-let data = ["Project 1", "Project 2", "Project 3"];
-let projects = [];
+
+// Sample project data
+const projects = [
+  {
+    name: "Self-Portrait NFT",
+    description: "A self-portrait piece created using Processing",
+    image: "/images/Self-Portrait_Jasmine.png",
+    editions: "1 of 1",
+    price: "0.01 ETH"
+  },
+  {
+    name: "Rodrigue",
+    description: "A digital inspiration of a most beloved companion",
+    image: "/images/Rodrigue_Jasmine.png",
+    editions: "1 of 1",
+    price: "0.02 ETH"
+  }
+];
 
 const app = express();
 const port = 3000;
@@ -28,7 +44,7 @@ app.get("/", (req, res) => {
 // });
 
 app.get("/project", (req, res) => {
-  res.render("project.ejs", { data: "Welcome to my personal NFT project!" });
+  res.render("project.ejs", { project: projects[0] });
 });
 
 app.get("/projects", (req, res) => {
@@ -37,11 +53,11 @@ app.get("/projects", (req, res) => {
 
 app.get("/project/:id", (req, res, next) => {
   try {
-    let id = req.params.id;
-    if (id > data.length) {
+    const id = parseInt(req.params.id);
+    if (id >= projects.length) {
       throw new Error("No project with that ID");
     }
-    res.render("projects.ejs", { projectArray: data, which: id });
+    res.render("project.ejs", { project: projects[id] });
   } catch (error) {
     next(error);
   }
