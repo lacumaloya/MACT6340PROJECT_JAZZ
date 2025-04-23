@@ -1,8 +1,10 @@
 import express from "express";
-import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
-dotenv.config();
 import * as db from './utils/database.js';
+import dotenv from "dotenv";
+dotenv.config();
+import cors from "cors";
+
 
 // Sample project data
 const projects = [
@@ -30,6 +32,7 @@ const projects = [
 ];
 
 const app = express();
+app.use(cors());
 const port = 3000;
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -39,16 +42,16 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-// app.get("/", async (req, res) => {
-//   await db
-//     .connect()
-//     .then(async () => {
-//       projects = await db.getAllProjects();
-//       console.log(projects);
-//       res.render("index.ejs");
-//     })
-//     .catch(next);
-// });
+app.get("/", async (req, res) => {
+  await db
+    .connect()
+    .then(async () => {
+      projects = await db.getAllProjects();
+      console.log(projects);
+      res.render("index.ejs");
+    })
+    .catch(next);
+});
 
 app.get("/project", (req, res) => {
   res.render("project.ejs", { project: projects[0] });
