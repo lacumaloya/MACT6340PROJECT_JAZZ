@@ -11,21 +11,21 @@ const projects = [
   {
     name: "Self-Portrait NFT",
     description: "A self-portrait piece created using Processing",
-    image: "/images/Self-Portrait_Jasmine.png",
+    image: "https://nft-mint-cdn-jazz.nyc3.cdn.digitaloceanspaces.com/images/Self-Portrait_Jasmine.png",
     editions: "1 of 1",
     price: "0.01 ETH"
   },
   {
     name: "Rodrigue",
     description: "A digital inspiration of a most beloved companion",
-    image: "/images/Rodrigue_Jasmine.png",
+    image: "https://nft-mint-cdn-jazz.nyc3.cdn.digitaloceanspaces.com/images/Rodrigue_Jasmine.png",
     editions: "1 of 1",
     price: "0.02 ETH"
   },
   {
     name: "Geo Bouquet",
     description: "A 3D bouquet of geometric shapes",
-    image: "/images/geo_bouquet.png",
+    image: "https://nft-mint-cdn-jazz.nyc3.cdn.digitaloceanspaces.com/images/geo_bouquet.png",
     editions: "1 of 1",
     price: "0.03 ETH"
   }
